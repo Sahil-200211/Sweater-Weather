@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMarsWeather } from "../api/nasaApi";
 import { TypingEffect } from "../components/typing-effect";
+import { easeOut, motion } from 'framer-motion';
 
 function MarsWeatherPage() {
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -23,7 +24,7 @@ function MarsWeatherPage() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-black text-white text-center p-8 max-w-full">
+    <main className="flex flex-col items-center min-h-screen bg-gradient-to-b from-[#000000] to-[#2a2929] text-white text-center p-8 max-w-full">
       <TypingEffect text="Mars Weather" />
       {loading && (
         <div className="animate-pulse text-gray-400">
@@ -36,15 +37,18 @@ function MarsWeatherPage() {
           {Object.keys(weatherData)
             .filter((key) => key.match(/^\d+$/))
             .map((sol) => (
-              <div
+              <motion.div
                 key={sol}
-                className="border p-4 rounded bg-red-900 bg-opacity-50"
+                className="border p-4 rounded bg-gradient-to-t from-[#8E0E00] to-[#1F1C18] bg-opacity-50"
+                initial={{opacity:0, scale:0.5}}
+                animate={{opacity:1, scale:1}}
+                transition={{ease:easeOut, delay: 0.8, duration: 0.6}}
               >
                 <h3 className="text-2xl font-semibold">SOL {sol}</h3>
                 <p>Avg Temp: {weatherData[sol].AT?.av ?? "N/A"} °C</p>
                 <p>Wind Speed: {weatherData[sol].HWS?.av ?? "N/A"} m/s</p>
                 <p>Pressure: {weatherData[sol].PRE?.av ?? "N/A"} Pa</p>
-              </div>
+              </motion.div>
             ))}
         </div>
       )}

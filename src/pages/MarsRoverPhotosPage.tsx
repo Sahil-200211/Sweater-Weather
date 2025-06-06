@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import { fetchMarsRoverPhotos } from "../api/nasaApi";
 import { BlurIn } from "../components/blur-in";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function MarsRoverPhotosPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      once:false
+    })
+  }, []);
+
   const [photos, setPhotos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -44,8 +53,13 @@ function MarsRoverPhotosPage() {
       {loading && <p>Loading photos...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        {photos.map((photo) => (
-          <div key={photo.id} className="bg-red-900 p-2 rounded shadow">
+        {photos.map((photo, index) => (
+          <div
+            key={photo.id}
+            className="bg-gradient-to-br from-[#EB5757] to-[#000000] p-2 rounded shadow"
+            data-aos="fade-up"
+            data-aos-delay={index*50}
+          >
             <img
               src={photo.img_src}
               alt={`Mars Rover - ${photo.id}`}
