@@ -6,16 +6,16 @@ import MarsRoverPhotosPage from "./pages/MarsRoverPhotosPage";
 function App() {
   return (
     <Router>
-      <nav className="bg-linear-to-r from-[#ED213A] to-[#93291E] text-white p-4 flex justify-between items-center">
+      <nav className="bg-transparent text-white p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold font-[Michroma]">Sweater Weather</h1>
-        <div className="flex gap-4">
-          <Link to="/" className="hover:underline">
+        <div className="flex items-center gap-4">
+          <Link to="/" className="hover:underline font-bold">
             Home
           </Link>
-          <Link to="/weather" className="hover:underline">
+          <Link to="/weather" className="hover:underline font-bold">
             Weather
           </Link>
-          <Link to="/photos" className="hover:underline">
+          <Link to="/photos" className="hover:underline font-bold">
             Photos
           </Link>
         </div>

@@ -8,7 +8,7 @@ function MarsRoverPhotosPage() {
   useEffect(() => {
     AOS.init({
       duration: 500,
-      once:false
+      once:true
     })
   }, []);
 
@@ -52,18 +52,18 @@ function MarsRoverPhotosPage() {
 
       {loading && <p>Loading photos...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-15">
         {photos.map((photo, index) => (
           <div
             key={photo.id}
-            className="bg-gradient-to-br from-[#EB5757] to-[#000000] p-2 rounded shadow"
+            className="bg-gradient-to-b from-[#6d1c1c] to-[#2e0404] p-2 rounded-xl shadow w-sm"
             data-aos="fade-up"
             data-aos-delay={index*50}
           >
             <img
               src={photo.img_src}
               alt={`Mars Rover - ${photo.id}`}
-              className="w-full h-auto rounded"
+              className="w-full h-auto rounded-lg"
             />
             <p className="text-sm mt-2">Camera: {photo.camera.full_name}</p>
             <p className="text-sm">Earth Date: {photo.earth_date}</p>
