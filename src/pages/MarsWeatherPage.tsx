@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMarsWeather } from "../api/nasaApi";
+import { TypingEffect } from "../components/typing-effect";
 
 function MarsWeatherPage() {
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -22,12 +23,16 @@ function MarsWeatherPage() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-black text-white text-center p-8">
-      <h2 className="text-4xl font-bold mb-6">Mars Weather</h2>
-      {loading && <p>Loading Weather Data...</p>}
+    <main className="flex flex-col items-center min-h-screen bg-black text-white text-center p-8 max-w-full">
+      <TypingEffect text="Mars Weather" />
+      {loading && (
+        <div className="animate-pulse text-gray-400">
+          Loading Weather Data...
+        </div>
+      )}
       {error && <p className="text-red-500">Error: {error}</p>}
       {weatherData && (
-        <div className="space-y-4">
+        <div className="max-w-[1000px] flex flex-row gap-3 mt-8 flex-wrap justify-center">
           {Object.keys(weatherData)
             .filter((key) => key.match(/^\d+$/))
             .map((sol) => (
