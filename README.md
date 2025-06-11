@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+# 🛰️ Sweater Weather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Your interplanetary weather app, straight from Mars!**  
+Sweater Weather is a sleek React web app that fetches real-time data from NASA's Mars APIs to show you the latest **Martian weather reports** and **epic photos** from the Red Planet. Whether you're curious or prepping for your next rover ride, we got you covered.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔥 **Live Mars Weather** — Check temperatures, pressure, and wind from the Perseverance rover.
+- 📸 **Mars Rover Gallery** — Browse stunning photos taken by rovers like Curiosity, Spirit, and Opportunity.
+- 🌌 **Smooth Animations** — With scroll effects, transitions, and some spacey vibes.
+- 🧑‍🚀 **Responsive Design** — Works perfectly on desktops, tablets, or your spaceship's dashboard.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔧 Tech Stack
+
+| Frontend | UI & Animations | API |
+|----------|------------------|-----|
+| React + Vite ⚡ | Tailwind CSS, Framer Motion 💫 | NASA Open APIs 🛰️ |
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/sweater-weather.git
+cd sweater-weather
+npm install
+npm run dev
 ```
+---
+Make sure to grab your free **NASA API Key**:
+🔗 https://api.nasa.gov
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Replace the Demo Key in your .env file like so:
+  ```bash
+  VITE_NASA_API_KEY=your_very_own_martian_passport
+  ```
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🤖 API's Used
+- **InSight: Mars Weather Service**
+- **Mars Rover Photos API**
+  
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🛠️ Crafted By
+*Well not Elon Musk*  
+[Sahil Bhosale](https://github.com/Sahil-200211)  
+Contributions welcome. Just fork, clone or hop onto your Millennium Falcon.👽
+
+---
+
+*Since you have made it this far, here's a fun fact for you:*  
+One Martian year = 687 Earth days. So if you're behind on your goals... move to Mars and pretend you're early.
+
